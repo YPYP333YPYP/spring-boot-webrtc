@@ -5,8 +5,6 @@ import org.springframework.data.annotation.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import java.time.LocalDateTime;
-import java.util.UUID;
-import org.springframework.data.annotation.CreatedDate;
 
 public record Room (
     @Id
@@ -20,6 +18,7 @@ public record Room (
     @Positive(message = "The room participant limit must be greater than zero")
     int participantLimit,
 
+
     boolean isActive
 
 ) {
@@ -30,4 +29,5 @@ public record Room (
             null, name, LocalDateTime.now(), participantLimit, isActive
         );
     }
+
 }
