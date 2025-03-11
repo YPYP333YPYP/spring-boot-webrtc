@@ -11,9 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface RoomRepository extends CrudRepository<Room, String> {
 
+    @Query("SELECT * FROM room")
     List<Room> findAllRooms();
 
-    @Modifying
     @Transactional
     @Query("SELECT * FROM room WHERE is_active = TRUE")
     List<Room> findByIsActiveTrue();
