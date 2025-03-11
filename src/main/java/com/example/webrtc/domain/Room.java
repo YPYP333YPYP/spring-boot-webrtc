@@ -6,11 +6,9 @@ import jakarta.validation.constraints.Positive;
 import java.time.LocalDateTime;
 import java.util.UUID;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
 
 public record Room (
 
-    @Id
     String id,
 
     @NotBlank(message = "The room name must be defined")
