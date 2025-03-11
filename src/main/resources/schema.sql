@@ -12,7 +12,7 @@ CREATE TABLE Room (
 
 DROP TABLE IF EXISTS participant;
 CREATE TABLE participant (
-                             id VARCHAR(255) PRIMARY KEY,
+                             id VARCHAR(36) DEFAULT uuid_generate_v4()::VARCHAR PRIMARY KEY,
                              name VARCHAR(255) NOT NULL,
                              room_id VARCHAR(255) NOT NULL,
                              joined_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
