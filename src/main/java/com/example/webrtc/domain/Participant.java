@@ -1,11 +1,11 @@
 package com.example.webrtc.domain;
 
+import org.springframework.data.annotation.Id;
 import jakarta.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
-import lombok.Getter;
 
 public record Participant(
-
+    @Id
     String id,
 
     @NotBlank(message = "The participant name must be defined")
@@ -20,9 +20,9 @@ public record Participant(
     boolean hasVideo
 ) {
     public static Participant of(
-        String id, String name, String roomId
+        String name, String roomId
 ) {
-    return new Participant(id, name, roomId, LocalDateTime.now(), true, true);
+    return new Participant(null, name, roomId, LocalDateTime.now(), true, true);
 }
 
 }
