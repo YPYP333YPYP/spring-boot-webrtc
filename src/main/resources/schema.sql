@@ -17,3 +17,12 @@ CREATE TABLE participant (
                              has_audio BOOLEAN NOT NULL DEFAULT true,
                              has_video BOOLEAN NOT NULL DEFAULT true
 );
+
+DROP TABLE IF EXISTS chat_message;
+CREATE TABLE chat_message (
+                              id SERIAL PRIMARY KEY,
+                              sender VARCHAR(255) NOT NULL,
+                              content TEXT NOT NULL,
+                              room_id VARCHAR(255) NOT NULL,
+                              timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
