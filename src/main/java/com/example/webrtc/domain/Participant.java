@@ -2,8 +2,9 @@ package com.example.webrtc.domain;
 
 import jakarta.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
+import lombok.Getter;
 
-
+@Getter
 public record Participant(
 
     String id,
