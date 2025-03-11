@@ -12,10 +12,10 @@ public class ParticipantResponse {
 
     public static ParticipantResponse from(Participant participant) {
         ParticipantResponse response = new ParticipantResponse();
-        response.setId(participant.getId());
-        response.setName(participant.getName());
-        response.setHasAudio(participant.isHasAudio());
-        response.setHasVideo(participant.isHasVideo());
+        response.setId(participant.id());
+        response.setName(participant.name());
+        response.setHasAudio(participant.hasAudio());
+        response.setHasVideo(participant.hasVideo());
         return response;
     }
 }

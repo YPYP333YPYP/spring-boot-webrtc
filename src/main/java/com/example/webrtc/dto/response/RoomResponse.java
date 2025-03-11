@@ -14,10 +14,10 @@ public class RoomResponse {
 
     public static RoomResponse from(Room room, int participantCount) {
         RoomResponse response = new RoomResponse();
-        response.setId(room.getId());
-        response.setName(room.getName());
-        response.setCreatedAt(room.getCreatedAt());
-        response.setParticipantLimit(room.getParticipantLimit());
+        response.setId(room.id());
+        response.setName(room.name());
+        response.setCreatedAt(room.createdAt());
+        response.setParticipantLimit(room.participantLimit());
         response.setParticipantCount(participantCount);
         return response;
     }
