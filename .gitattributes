@@ -2,3 +2,4 @@
 *.bat text eol=crlf
 *.jar binary
 linguist-language=Java
+.js linguist-detectable=false
