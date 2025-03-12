@@ -43,7 +43,7 @@ public class RoomService {
 
     // 채팅방에 참가자 추가
     @Transactional
-    public Participant addParticipant(String roomId, String participantId, String participantName) {
+    public Participant addParticipant(String roomId,String participantName) {
         Optional<Room> roomOpt = roomRepository.findById(roomId);
         if (roomOpt.isEmpty() || !roomOpt.get().isActive()) {
             return null;
@@ -54,7 +54,7 @@ public class RoomService {
             return null; // 방이 꽉 찼을 때
         }
 
-        Participant participant = new Participant(participantId, participantName, room.id(), LocalDateTime.now(),true, true);
+        Participant participant = new Participant(null, participantName, room.id(), LocalDateTime.now(),true, true);
         return participantRepository.save(participant);
     }
 
