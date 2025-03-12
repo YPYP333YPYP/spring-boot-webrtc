@@ -1,0 +1,127 @@
+/* 전체 레이아웃 */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.control-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* 메인 컨텐츠에 패딩 추가하여 컨트롤 바와 겹치지 않게 함 */
+.container-fluid {
+  padding-bottom: 60px; /* 컨트롤 바 높이보다 약간 크게 */
+}
+
+/* 비디오 영역 */
+.video-container {
+  height: calc(100vh - 48px); /* 헤더 높이 제외 */
+  overflow-y: auto;
+  background-color: #1a1a1a;
+  padding: 10px;
+}
+
+.video-wrap {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* 4:3 비율 */
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #2a2a2a;
+  margin-bottom: 10px;
+}
+
+video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.local-video {
+  transform: scaleX(-1); /* 자기 비디오는 미러링 */
+}
+
+.video-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.participant-name {
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.video-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.video-controls button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.video-controls button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.video-controls button:active {
+  transform: scale(0.95);
+}
+
+.video-controls button.off {
+  background-color: #f44336;
+}
+
+.video-controls button i {
+  font-size: 18px;
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .video-controls {
+    gap: 4px;
+  }
+
+  .video-controls button {
+    width: 28px;
+    height: 28px;
+  }
+
+  .video-controls button i {
+    font-size: 16px;
+  }
+
+  .participant-name {
+    font-size: 12px;
+    max-width: 100px;
+  }
+}
