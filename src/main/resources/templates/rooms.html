@@ -1,0 +1,64 @@
+<!-- src/main/resources/templates/rooms.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회의실 목록 - WebRTC 화상 회의</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+      <h2>회의실 목록</h2>
+      <a href="/" class="btn btn-outline-light">홈으로</a>
+    </div>
+    <div class="card-body">
+      <div id="roomsList" class="row g-4">
+        <!-- 방 목록이 여기에 동적으로 로드됩니다 -->
+        <div class="col-12 text-center" id="loadingRooms">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p class="mt-2">회의실 불러오는 중...</p>
+        </div>
+        <div class="col-12 text-center d-none" id="noRooms">
+          <p class="fs-5">활성화된 회의실이 없습니다.</p>
+          <a href="/" class="btn btn-primary mt-3">새 회의 만들기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 참가 모달 -->
+<div class="modal fade" id="joinRoomModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">회의 참가</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="joinRoomForm">
+          <input type="hidden" id="joinRoomId">
+          <div class="mb-3">
+            <label for="participantName" class="form-label">이름</label>
+            <input type="text" class="form-control" id="participantName" placeholder="이름을 입력하세요" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary" id="joinRoomButton">참가하기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/static/js/rooms.js"></script>
+</body>
+</html>
